@@ -1,10 +1,10 @@
 import Hero from '@/components/sections/Hero'
 import Problem from '@/components/sections/Problem'
 import Solution from '@/components/sections/Solution'
+import HowItWorks from '@/components/sections/HowItWorks'
 import Pricing from '@/components/sections/Pricing'
-import Testimonials from '@/components/sections/Testimonials'
 import FAQ from '@/components/sections/FAQ'
-import DemoForm from '@/components/sections/DemoForm'
+import FinalCTA from '@/components/sections/FinalCTA'
 import { Toaster } from '@/components/ui/sonner'
 
 export default function Home() {
@@ -14,10 +14,10 @@ export default function Home() {
         <Hero />
         <Problem />
         <Solution />
+        <HowItWorks />
         <Pricing />
-        <Testimonials />
         <FAQ />
-        <DemoForm />
+        <FinalCTA />
       </main>
       <Toaster />
     </>

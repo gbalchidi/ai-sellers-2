@@ -1,130 +1,134 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import {
-  BarChart3,
-  TrendingUp,
-  Zap,
-  Target,
-  ArrowRight
-} from 'lucide-react'
+import { ArrowRight, CheckCircle, Sparkles } from 'lucide-react'
+import { SignupForm } from '@/components/SignupForm'
 
 const Hero = () => {
-  const metrics = [
-    {
-      icon: BarChart3,
-      number: '50,000+',
-      text: 'фраз в реальном времени',
-      color: 'text-blue-600'
-    },
-    {
-      icon: TrendingUp,
-      number: '15-25%',
-      text: 'рост маржинальности',
-      color: 'text-emerald-600'
-    },
-    {
-      icon: Zap,
-      number: '100+',
-      text: 'кампаний одновременно',
-      color: 'text-amber-600'
-    },
-    {
-      icon: Target,
-      number: '50-70%',
-      text: 'увеличение ROI рекламы',
-      color: 'text-purple-600'
-    }
-  ]
-
-  const scrollToDemo = () => {
-    const element = document.getElementById('pricing')
-    element?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const [isFormOpen, setIsFormOpen] = useState(false)
 
   return (
-    <section className="relative min-h-screen flex items-center py-20">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-emerald-50" />
+    <>
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white py-16 lg:py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-      {/* Animated background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-6xl mx-auto"
-        >
-          {/* Badge */}
-          <div className="flex justify-center mb-6">
-            <Badge variant="secondary" className="px-4 py-1.5 text-sm font-medium">
-              🚀 AI-платформа для умных селлеров
-            </Badge>
-          </div>
-
-          {/* Main heading */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-            Управляйте маржинальностью
-            <br />
-            <span className="bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
-              500+ SKU из одного окна
-            </span>
-          </h1>
-
-          {/* Subheading */}
-          <p className="text-xl md:text-2xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-            AI-платформа для селлеров, которые считают деньги, а не надеются на удачу
-          </p>
-
-          {/* Metrics grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto">
-            {metrics.map((metric, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 + 0.3 }}
-                className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-shadow"
-              >
-                <div className={`inline-flex p-2 rounded-lg bg-gray-50 mb-2 ${metric.color}`}>
-                  <metric.icon className="w-5 h-5" />
-                </div>
-                <div className="text-2xl font-bold text-gray-900">{metric.number}</div>
-                <div className="text-sm text-gray-600">{metric.text}</div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="flex flex-col items-center"
-          >
-            <Button
-              size="lg"
-              className="text-lg px-8 py-6 mb-4 group bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800"
-              onClick={scrollToDemo}
+            {/* Left: Copy */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="max-w-2xl"
             >
-              📈 Получить демо-доступ
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <p className="text-gray-600">
-              Покажем на ваших данных, сколько денег теряете прямо сейчас
-            </p>
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                Опишите свою стратегию текстом —{" "}
+                <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+                  ИИ воплотит её в жизнь
+                </span>
+              </h1>
+
+              <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-8">
+                AI-агент для селлеров Wildberries, который автоматизирует любые кастомные стратегии управления рекламой.
+                Вам доступно не просто 5-7 шаблонов, а реализация самых изощренных стратегий без сложных формул и кода.
+              </p>
+
+              {/* Social Proof (Trust Badges) */}
+              <div className="flex flex-col gap-2 mb-8">
+                <div className="flex items-start gap-2 text-xs sm:text-sm text-slate-600">
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Экономия 20-40% рекламного бюджета</span>
+                </div>
+                <div className="flex items-start gap-2 text-xs sm:text-sm text-slate-600">
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>В 4-8 раз дешевле конкурентов</span>
+                </div>
+                <div className="flex items-start gap-2 text-xs sm:text-sm text-slate-600">
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Интеграция с WB API за 2 минуты</span>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="mb-4">
+                <Button
+                  size="lg"
+                  className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all w-full sm:w-auto"
+                  onClick={() => {
+                    // Track CTA click
+                    if (typeof window !== 'undefined' && (window as any).ym) {
+                      (window as any).ym(105281033, 'reachGoal', 'hero_cta_click')
+                    }
+                    setIsFormOpen(true);
+                  }}
+                >
+                  <Sparkles className="mr-2 h-5 w-5" />
+                  Попробовать бесплатно 14 дней
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+
+              {/* Micro-copy */}
+              <p className="text-sm text-slate-500">
+                Без карты. Настройка за 5 минут.
+              </p>
+            </motion.div>
+
+            {/* Right: Visual */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative mt-8 lg:mt-0"
+            >
+              <div className="bg-white rounded-lg shadow-2xl p-4 sm:p-6">
+                <div className="bg-slate-50 rounded-lg p-3 sm:p-4">
+                  <div className="space-y-4">
+                    {/* User message */}
+                    <div className="bg-blue-100 rounded-lg p-3">
+                      <p className="text-xs sm:text-sm text-slate-700 font-medium mb-1">Вы:</p>
+                      <p className="text-xs sm:text-sm text-slate-900">
+                        "Повышай ставки на товары с маржой &gt;15%, снижай на товары с ДРР &gt;30%"
+                      </p>
+                    </div>
+
+                    {/* AI response */}
+                    <div className="bg-green-50 rounded-lg p-3">
+                      <p className="text-xs sm:text-sm text-slate-700 font-medium mb-2">AI-агент:</p>
+                      <p className="text-xs sm:text-sm text-slate-900 mb-2">"Понял! Создаю правила:</p>
+                      <div className="space-y-1 text-xs sm:text-sm">
+                        <div className="flex items-start gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                          <span className="text-slate-700">Условие 1: маржа &gt; 15% → ставка +20%</span>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                          <span className="text-slate-700">Условие 2: ДРР &gt; 30% → ставка -15%</span>
+                        </div>
+                      </div>
+                      <p className="text-xs sm:text-sm text-slate-900 mt-2">Хотите увидеть предстоящие изменения?"</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating annotation */}
+                <div className="absolute -top-4 sm:-top-6 -right-2 sm:-right-6 bg-white p-3 sm:p-4 rounded-lg shadow-lg border-2 border-blue-500 max-w-[200px] sm:max-w-none">
+                  <p className="text-xs sm:text-sm font-semibold text-blue-600">
+                    ✨ Безграничная гибкость!
+                  </p>
+                  <p className="text-[10px] sm:text-xs text-slate-600">
+                    Любая стратегия просто через описание в чате
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <SignupForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
+    </>
   )
 }
 

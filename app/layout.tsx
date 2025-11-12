@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI-агент для селлеров маркетплейсов | Управление маржинальностью рекламы",
-  description: "Увеличьте прибыль на 15-25% за счет оптимизации рекламы на маркетплейсах. AI-платформа для расчета реальной маржи по каждой фразе. От 990₽/мес.",
-  keywords: "селлер маркетплейс, реклама wildberries, реклама ozon, маржинальность, ДРР, юнит экономика, аналитика маркетплейсов",
+  title: "AI-агент для управления рекламой на Wildberries | Автоматизация кастомных стратегий",
+  description: "Опишите свою стратегию текстом — ИИ воплотит её в жизнь. AI-агент для селлеров Wildberries с безграничной гибкостью. Экономия 20-40% бюджета.",
+  keywords: "автоматизация рекламы wildberries, биддер для wb, AI агент wildberries, управление рекламой wb, селлер инструменты",
   openGraph: {
-    title: "Управляйте маржинальностью 500+ SKU из одного окна",
-    description: "AI-платформа для селлеров, которые считают деньги, а не надеются на удачу",
+    title: "Опишите свою стратегию текстом — ИИ воплотит её в жизнь",
+    description: "AI-агент для селлеров Wildberries, который автоматизирует ЛЮБЫЕ кастомные стратегии управления рекламой",
     type: "website",
   },
 };
@@ -29,7 +29,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru">
+      <head>
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(m,e,t,r,i,k,a){
+                m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();
+                for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+              })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105281033', 'ym');
+
+              ym(105281033, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+            `,
+          }}
+        />
+        <noscript>
+          <div>
+            <img
+              src="https://mc.yandex.ru/watch/105281033"
+              style={{ position: 'absolute', left: '-9999px' }}
+              alt=""
+            />
+          </div>
+        </noscript>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
